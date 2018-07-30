@@ -47,4 +47,9 @@ class TarifRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function getTarifs(){
+        return $this->createQueryBuilder('m')
+            ->getQuery()
+            ->getResult();
+    }
 }

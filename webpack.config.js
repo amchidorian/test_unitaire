@@ -11,6 +11,7 @@ Encore
     // will create public/build/app.js and public/build/app.css
     .addStyleEntry('css/market', './assets/css/market.css')
     .addStyleEntry('css/hover', './assets/css/hover.css')
+    .addEntry('js/market', './assets/js/market.js')
     // allow legacy applications to use $/jQuery as a global variable
     //.autoProvidejQuery()
 

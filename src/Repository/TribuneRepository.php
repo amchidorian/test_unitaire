@@ -47,4 +47,17 @@ class TribuneRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function getTribunes(){
+        return $this->createQueryBuilder('m')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getPlaceTribune($tribune){
+        return $this->createQueryBuilder('m')
+            ->where("m.id = ?1")
+            ->setParameter(1, $tribune)
+            ->getQuery()
+            ->getResult();
+    }
 }

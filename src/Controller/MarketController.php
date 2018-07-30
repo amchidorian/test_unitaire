@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Matches;
+use App\Entity\Tarif;
+use App\Entity\Tribune;
 use App\Repository\MatchesRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +29,13 @@ class MarketController extends Controller
      */
     public function index()
     {
-        return $this->render('market/market.html.twig', array("matchs" => $this->getMatchs()));
+        dump($this->getDoctrine()->getRepository(Tribune::class)->getPlaceTribune(6));
+        return $this->render('market/market.html.twig',
+            array(
+                "matchs" => $this->getMatchs(),
+                "tribunes" => $this->getTribunes(),
+                "tarifs" => $this->getTarifs()
+            ));
     }
 
     /**
@@ -36,5 +44,13 @@ class MarketController extends Controller
     protected function getMatchs()
     {
         return $this->getDoctrine()->getRepository(Matches::class)->getMatchs();
+    }
+
+    protected function getTribunes(){
+        return $this->getDoctrine()->getRepository(Tribune::class)->getTribunes();
+    }
+
+    protected function getTarifs(){
+        return $this->getDoctrine()->getRepository(Tarif::class)->getTarifs();
     }
 }

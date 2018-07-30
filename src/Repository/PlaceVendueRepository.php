@@ -47,4 +47,14 @@ class PlaceVendueRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getPlaceTribune($tribune, $match){
+        return $this->createQueryBuilder('m')
+            ->where("m.tribune = ?1")
+            ->andWhere("m.matchs = ?2")
+            ->setParameter(1, $tribune)
+            ->setParameter(2, $match)
+            ->getQuery()
+            ->getResult();
+    }
 }
