@@ -63,6 +63,11 @@ class Spectateur
      */
     private $supplement;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Billet", mappedBy="spectateur", cascade={"persist", "remove"})
+     */
+    private $billet;
+
     public function __construct()
     {
         $this->matches = new ArrayCollection();
@@ -193,6 +198,23 @@ class Spectateur
     public function setSupplement(?Supplement $supplement): self
     {
         $this->supplement = $supplement;
+
+        return $this;
+    }
+
+    public function getBillet(): ?Billet
+    {
+        return $this->billet;
+    }
+
+    public function setBillet(Billet $billet): self
+    {
+        $this->billet = $billet;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $billet->getSpectateur()) {
+            $billet->setSpectateur($this);
+        }
 
         return $this;
     }
