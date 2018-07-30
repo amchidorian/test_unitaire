@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\SupplementRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AbonneRepository")
  */
-class Supplement
+class Abonne
 {
     /**
      * @ORM\Id()
@@ -19,21 +19,21 @@ class Supplement
     /**
      * @ORM\Column(type="integer")
      */
-    private $pourcentage;
+    private $numero_abonnement;
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getPourcentage(): ?int
+    public function getNumeroAbonnement(): ?int
     {
-        return $this->pourcentage;
+        return $this->numero_abonnement;
     }
 
-    public function setPourcentage(int $pourcentage): self
+    public function setNumeroAbonnement(int $numero_abonnement): self
     {
-        $this->pourcentage = $pourcentage;
+        $this->numero_abonnement = $numero_abonnement;
 
         return $this;
     }

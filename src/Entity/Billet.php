@@ -17,36 +17,34 @@ class Billet
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $numero;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Spectateur", inversedBy="billet", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Spectateur", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $spectateur;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ZoneStade", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Tribune", cascade={"persist", "remove"})
      */
     private $tribune;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Tarif", cascade={"persist", "remove"})
+     */
+    private $tarif;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Matches", cascade={"persist", "remove"})
+     */
+    private $matchs;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Reduction", cascade={"persist", "remove"})
+     */
+    private $reduction;
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getNumero(): ?string
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(string $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
     }
 
     public function getSpectateur(): ?Spectateur
@@ -61,14 +59,50 @@ class Billet
         return $this;
     }
 
-    public function getTribune(): ?ZoneStade
+    public function getTribune(): ?Tribune
     {
         return $this->tribune;
     }
 
-    public function setTribune(?ZoneStade $tribune): self
+    public function setTribune(?Tribune $tribune): self
     {
         $this->tribune = $tribune;
+
+        return $this;
+    }
+
+    public function getTarif(): ?Tarif
+    {
+        return $this->tarif;
+    }
+
+    public function setTarif(?Tarif $tarif): self
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    public function getMatchs(): ?Matches
+    {
+        return $this->matchs;
+    }
+
+    public function setMatchs(?Matches $matchs): self
+    {
+        $this->matchs = $matchs;
+
+        return $this;
+    }
+
+    public function getReduction(): ?Reduction
+    {
+        return $this->reduction;
+    }
+
+    public function setReduction(?Reduction $reduction): self
+    {
+        $this->reduction = $reduction;
 
         return $this;
     }

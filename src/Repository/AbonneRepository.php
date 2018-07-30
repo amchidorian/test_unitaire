@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Abonnee;
+use App\Entity\Abonne;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Abonnee|null find($id, $lockMode = null, $lockVersion = null)
- * @method Abonnee|null findOneBy(array $criteria, array $orderBy = null)
- * @method Abonnee[]    findAll()
- * @method Abonnee[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Abonne|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Abonne|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Abonne[]    findAll()
+ * @method Abonne[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AbonneeRepository extends ServiceEntityRepository
+class AbonneRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Abonnee::class);
+        parent::__construct($registry, Abonne::class);
     }
 
 //    /**
-//     * @return Abonnee[] Returns an array of Abonnee objects
+//     * @return Abonne[] Returns an array of Abonne objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AbonneeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Abonnee
+    public function findOneBySomeField($value): ?Abonne
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

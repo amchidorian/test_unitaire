@@ -22,26 +22,21 @@ class Saison
     private $annee_debut;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $annee_fin;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $nombre_abonnements;
 
     public function getId()
     {
         return $this->id;
     }
 
-    public function getAnneeDebut(): ?array
+    public function getAnneeDebut(): ?int
     {
         return $this->annee_debut;
     }
 
-    public function setAnneeDebut(array $annee_debut): self
+    public function setAnneeDebut(int $annee_debut): self
     {
         $this->annee_debut = $annee_debut;
 
@@ -56,18 +51,6 @@ class Saison
     public function setAnneeFin(string $annee_fin): self
     {
         $this->annee_fin = $annee_fin;
-
-        return $this;
-    }
-
-    public function getNombreAbonnements(): ?int
-    {
-        return $this->nombre_abonnements;
-    }
-
-    public function setNombreAbonnements(int $nombre_abonnements): self
-    {
-        $this->nombre_abonnements = $nombre_abonnements;
 
         return $this;
     }
