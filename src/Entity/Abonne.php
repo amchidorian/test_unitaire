@@ -21,6 +21,11 @@ class Abonne
      */
     private $numero_abonnement;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +39,18 @@ class Abonne
     public function setNumeroAbonnement(int $numero_abonnement): self
     {
         $this->numero_abonnement = $numero_abonnement;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

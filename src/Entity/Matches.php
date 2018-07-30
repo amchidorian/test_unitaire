@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MatchRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MatchesRepository")
  */
 class Matches
 {
@@ -34,9 +34,9 @@ class Matches
     private $stade;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tribune", mappedBy="matchs")
+     * @ORM\Column(type="string", length=255)
      */
-    private $tribunes;
+    private $date;
 
     public function __construct()
     {
@@ -84,30 +84,14 @@ class Matches
         return $this;
     }
 
-    /**
-     * @return Collection|Tribune[]
-     */
-    public function getTribunes(): Collection
+    public function getDate(): ?string
     {
-        return $this->tribunes;
+        return $this->date;
     }
 
-    public function addTribune(Tribune $tribune): self
+    public function setDate(string $date): self
     {
-        if (!$this->tribunes->contains($tribune)) {
-            $this->tribunes[] = $tribune;
-            $tribune->addMatch($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTribune(Tribune $tribune): self
-    {
-        if ($this->tribunes->contains($tribune)) {
-            $this->tribunes->removeElement($tribune);
-            $tribune->removeMatch($this);
-        }
+        $this->date = $date;
 
         return $this;
     }

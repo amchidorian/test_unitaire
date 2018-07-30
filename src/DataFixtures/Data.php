@@ -28,18 +28,18 @@ class Data extends Fixture
         $saison->setAnneeFin(2019)->setAnneeDebut(2018);
 
         $matchPsg = new Matches();
-        $matchPsg->setStade($stade1)->setSaison($saison)->setEquipeExt("PSG");
+        $matchPsg->setStade($stade1)->setSaison($saison)->setEquipeExt("PSG")->setDate("1533492552");
         $matchOm = new Matches();
-        $matchOm->setStade($stade1)->setSaison($saison)->setEquipeExt("OM");
+        $matchOm->setStade($stade1)->setSaison($saison)->setEquipeExt("OM")->setDate("1534097352");
         $matchMhsc = new Matches();
-        $matchMhsc->setStade($stade1)->setSaison($saison)->setEquipeExt("MHSC");
+        $matchMhsc->setStade($stade1)->setSaison($saison)->setEquipeExt("MHSC")->setDate("1534874952");
 
         $abonne1 = new Abonne();
-        $abonne1->setNumeroAbonnement(1);
+        $abonne1->setNumeroAbonnement(1)->setNom("Robert");
         $abonne2 = new Abonne();
-        $abonne2->setNumeroAbonnement(2);
+        $abonne2->setNumeroAbonnement(2)->setNom("Mouloud");
         $abonne3 = new Abonne();
-        $abonne3->setNumeroAbonnement(3);
+        $abonne3->setNumeroAbonnement(3)->setNom("Momo");
 
         $tarif1 = new Tarif();
         $tarif1->setNom("plein_tarif")->setPrix(150);

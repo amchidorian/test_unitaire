@@ -28,11 +28,6 @@ class Tribune
      */
     private $nombre_place;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Matches", inversedBy="tribunes")
-     */
-    private $matchs;
-
     public function __construct()
     {
         $this->matchs = new ArrayCollection();
@@ -63,32 +58,6 @@ class Tribune
     public function setNombrePlace(int $nombre_place): self
     {
         $this->nombre_place = $nombre_place;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Matches[]
-     */
-    public function getMatchs(): Collection
-    {
-        return $this->matchs;
-    }
-
-    public function addMatch(Matches $match): self
-    {
-        if (!$this->matchs->contains($match)) {
-            $this->matchs[] = $match;
-        }
-
-        return $this;
-    }
-
-    public function removeMatch(Matches $match): self
-    {
-        if ($this->matchs->contains($match)) {
-            $this->matchs->removeElement($match);
-        }
 
         return $this;
     }
