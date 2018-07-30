@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Market{% endblock %}
+{% block style %}<link rel="stylesheet" href="{{ asset('build/css/market.css') }}">{% endblock %}
+
+{% block body %}
+    <section class="hero is-info is-fullheight">
+
+        {% include 'navbar.html.twig' %}
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-6 is-offset-3">
+                    <h1 class="title">
+                        Coming Soon
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
