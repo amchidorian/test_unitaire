@@ -31,12 +31,14 @@ class Spectateur
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $age;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="App\Entity\Abonne", cascade={"persist", "remove"})
      */
-    private $sexe;
+    private $abonne;
+
+
 
     public function getId()
     {
@@ -67,28 +69,29 @@ class Spectateur
         return $this;
     }
 
-    public function getAge(): ?string
+    public function getEmail(): ?string
     {
-        return $this->age;
+        return $this->email;
     }
 
-    public function setAge(string $age): self
+    public function setEmail(string $email): self
     {
-        $this->age = $age;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getAbonne(): ?Abonne
     {
-        return $this->sexe;
+        return $this->abonne;
     }
 
-    public function setSexe(string $sexe): self
+    public function setAbonne(?Abonne $abonne): self
     {
-        $this->sexe = $sexe;
+        $this->abonne = $abonne;
 
         return $this;
     }
+
 
 }

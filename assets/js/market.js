@@ -42,7 +42,7 @@ $(".next4").click(function (){
             console.log("error");
         }
     });
-}
+});
 
 $("#tribune").change(function () {
     ajaxGetTribunePlace()

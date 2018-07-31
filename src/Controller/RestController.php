@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Billet;
 use App\Entity\PlaceVendue;
+use App\Entity\Spectateur;
 use App\Entity\Tarif;
 use App\Entity\Tribune;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,10 +39,15 @@ class RestController extends Controller
     }
 
     /**
-     * @Route("/rest/total", name="palce_restante")
+     * @Route("/rest/total", name="tarif")
      */
-    public function total(){
+    public function total(Request $datas){
+        $spec = new Spectateur();
+        $spec->setNom($datas->request->get('nom'))->setEmail($datas->request->get('email'))->setPrenom($datas->request->get('prenom'));
+
+
+        $billet = new Billet();
         $tarif = $this->getDoctrine()->getRepository(Tarif::class)->getTarif($datas->request->get('tarif'))[0]->getPrix();
-        $abonnee =
+        $abonnee ;
     }
 }

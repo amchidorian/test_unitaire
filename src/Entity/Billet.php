@@ -38,9 +38,9 @@ class Billet
     private $matchs;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Reduction", cascade={"persist", "remove"})
+     * @ORM\Column(type="integer")
      */
-    private $reduction;
+    private $total;
 
     public function getId()
     {
@@ -95,14 +95,14 @@ class Billet
         return $this;
     }
 
-    public function getReduction(): ?Reduction
+    public function getTotal(): ?int
     {
-        return $this->reduction;
+        return $this->total;
     }
 
-    public function setReduction(?Reduction $reduction): self
+    public function setTotal(int $total): self
     {
-        $this->reduction = $reduction;
+        $this->total = $total;
 
         return $this;
     }

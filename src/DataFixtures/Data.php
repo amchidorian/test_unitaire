@@ -63,15 +63,15 @@ class Data extends Fixture
         $sup5->setPourcentage(25);
 
         $tribune1 = new Tribune();
-        $tribune1->setNom("Nord")->setNombrePlace(2500);
+        $tribune1->setNom("Nord")->setNombrePlace(2500)->setSupplement($sup1);
         $tribune2 = new Tribune();
-        $tribune2->setNom("Sud")->setNombrePlace(2500);
+        $tribune2->setNom("Sud")->setNombrePlace(2500)->setSupplement($sup2);
         $tribune3 = new Tribune();
-        $tribune3->setNom("Ouest")->setNombrePlace(2500);
+        $tribune3->setNom("Ouest")->setNombrePlace(2500)->setSupplement($sup3);
         $tribune4 = new Tribune();
-        $tribune4->setNom("Est")->setNombrePlace(2500);
+        $tribune4->setNom("Est")->setNombrePlace(2500)->setSupplement($sup4);
         $tribune5 = new Tribune();
-        $tribune5->setNom("Vip")->setNombrePlace(2500);
+        $tribune5->setNom("Vip")->setNombrePlace(2500)->setSupplement($sup5);
 
         $placevendu = new PlaceVendue();
         $placevendu->setPlaceVendu(200)->setTribune($tribune1)->setMatchs($matchOm);

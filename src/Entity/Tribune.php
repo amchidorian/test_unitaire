@@ -28,6 +28,12 @@ class Tribune
      */
     private $nombre_place;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Supplement", cascade={"persist", "remove"})
+     */
+    private $supplement;
+
+
     public function __construct()
     {
         $this->matchs = new ArrayCollection();
@@ -58,6 +64,18 @@ class Tribune
     public function setNombrePlace(int $nombre_place): self
     {
         $this->nombre_place = $nombre_place;
+
+        return $this;
+    }
+
+    public function getSupplement(): ?Supplement
+    {
+        return $this->supplement;
+    }
+
+    public function setSupplement(?Supplement $supplement): self
+    {
+        $this->supplement = $supplement;
 
         return $this;
     }
