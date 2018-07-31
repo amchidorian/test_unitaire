@@ -1,13 +1,3 @@
-function getNumForm(clas) {
-    var current;
-    for (var i = 0; i < clas.length; i++) {
-        if (!isNaN(clas[i])) {
-            current = clas[i];
-        }
-    }
-    return current;
-}
-
 $("#next").click(function () {
     ManipDomNext()
 });
@@ -27,9 +17,47 @@ $(".next1").click(function () {
         $('.ext').attr('src', '')
         $('.ext').attr('src', 'http://www.mhscfoot.com/sites/default/files/logo_0.png');
     }
+    ajaxGetTribunePlace()
 });
 
+$(".next4").click(function (){
+    var data = {
+        'tribune' : $("#tribune").val(),
+        'match' : $('#match').val(),
+        'tarif' : $('#tarif').val(),
+        'nom' : $('#nom').val(),
+        'nom' : $('#prenom').val(),
+        'nom' : $('#email').val()
+    };
+    $.ajax({
+        type: "POST",
+        url: "http://billeterie.bwb/rest/total",
+        dataType: "json",
+        data: data,
+        success: function (data) {
+            console.log(data)
+        },
+        error: function (e) {
+            $("#erreur").text(e.responseText)
+            console.log("error");
+        }
+    });
+}
+
 $("#tribune").change(function () {
+    ajaxGetTribunePlace()
+});
+
+function getNumForm(clas) {
+    var current;
+    for (var i = 0; i < clas.length; i++) {
+        if (!isNaN(clas[i])) {
+            current = clas[i];
+        }
+    }
+    return current;
+}
+function ajaxGetTribunePlace(){
     var data = {
         'tribune' : $("#tribune").val(),
         'match' : $('#match').val()
@@ -48,8 +76,7 @@ $("#tribune").change(function () {
             console.log("error");
         }
     });
-});
-
+}
 function ManipDomNext() {
     var clas = $('#next').attr('class');
     var current = getNumForm(clas);
@@ -71,7 +98,6 @@ function ManipDomNext() {
     $("#form" + next).css("display", "inline-block");
 
 }
-
 function ManipDomPrevious() {
     var clas = $('#next').attr('class');
     var current = getNumForm(clas);

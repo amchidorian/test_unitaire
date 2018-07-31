@@ -61,7 +61,6 @@
                                             <option value="{{ tarif.getId() }}">{{ tarif.getNom()}} - {{ tarif.getPrix()}}€</option>
                                         {% endfor %}
                                     {% endif %}
-                                    <option value="etudiant">Tarif Etudiant - 25 €</option>
                                 </select>
                             </div>
                         </div>
@@ -71,20 +70,20 @@
                             <div class="field">
                                 <label class="label">Nom</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g Alex Smith">
+                                    <input class="input" id="nom" type="text" placeholder="e.g Alex Smith">
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Prénom</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. alexsmith@gmail.com">
+                                    <input class="input" id="prenom" type="text" placeholder="e.g. alexsmith@gmail.com">
                                 </div>
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">Email</label>
                             <div class="control">
-                                <input type="email" class="input" placeholder="Vous êtes abonné ? Entrez votre numéro.">
+                                <input type="email" id="email" class="input" placeholder="Vous êtes abonné ? Entrez votre numéro.">
                             </div>
                         </div>
                         <div class="field">

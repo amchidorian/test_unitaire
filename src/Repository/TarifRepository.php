@@ -52,4 +52,12 @@ class TarifRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function getTarif($tarif){
+        return $this->createQueryBuilder('m')
+            ->where("m.id = ?1")
+            ->setParameter(1, $tarif)
+            ->getQuery()
+            ->getResult();
+    }
 }

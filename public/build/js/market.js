@@ -102,9 +102,14 @@ $(".next1").click(function () {
         $('.ext').attr('src', '');
         $('.ext').attr('src', 'http://www.mhscfoot.com/sites/default/files/logo_0.png');
     }
+    ajaxGetTribunePlace();
 });
 
 $("#tribune").change(function () {
+    ajaxGetTribunePlace();
+});
+
+function ajaxGetTribunePlace() {
     var data = {
         'tribune': $("#tribune").val(),
         'match': $('#match').val()
@@ -123,8 +128,7 @@ $("#tribune").change(function () {
             console.log("error");
         }
     });
-});
-
+}
 function ManipDomNext() {
     var clas = $('#next').attr('class');
     var current = getNumForm(clas);
